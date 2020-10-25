@@ -1,0 +1,59 @@
+spring:
+  profiles:
+    active: dev
+
+  resources:
+    static-locations: classpath:/static
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/wechat_ordering?useSSL=true&serverTimezone=UTC
+    username: root
+    password: QQDYW19980612
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    default-property-inclusion: non_null
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  freemarker:
+    request-context-attribute: req  #req访问request
+    suffix: .ftl  #后缀名
+#    content-type: text/html
+    enabled: true
+    cache: false #缓存配置
+    template-loader-path: classpath:/templates/ #模板加载路径 按需配置
+    charset: UTF-8 #编码格式
+    settings:
+      number_format: '0.##'   #数字格式化，无小数点
+    redis:
+      port: 6379
+      host: 192.168.1.2
+
+
+server:
+  port: 8088
+  servlet:
+    context-path: /sell
+
+
+projecturl:
+  wechatMpAuthorize: http://duan-sell.nat300.top
+  wechatOpenAuthorize: http://duan-sell.nat300.top
+  sell: http://localhost:8088/
+
+wechat:
+#  #mpAppId: wxd898fcb01713c658
+#  mpAppId: wx446354c2d96843fc
+#  #mpAppSecret: 29d8a650db31472aa87800e3b0d739f2
+#  mpAppSecret: aeadb86062e2c231d39ba3d51d1f30f9
+  mpAppId: wxbd05df8d85b776a4
+  mpAppSecret: f5af6ba259287f8cd8c81c60ded18f07
+
+  #mchId: 1409146202
+  #mchKey: c976503d34ca432c601361f969fd8d85
+  mchId: 1483469312
+  mchKey: C5245D70627C1F8E9964D494B0735025
+  keyPath: D:\BaiduNetdiskDownload\cert
+  notifyUrl: http://duan-sell.nat300.top/sell/pay/notify
+
